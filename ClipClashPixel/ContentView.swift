@@ -2496,6 +2496,12 @@ private struct RoundTableTurnResult {
     var voiceClipName: String? = nil
 }
 
+private struct RoundTableUserInterjection: Identifiable, Equatable {
+    let id = UUID()
+    let sequence: Int
+    let text: String
+}
+
 private struct ForumShareMoment: Identifiable, Equatable {
     let id = UUID()
     let expertName: String
@@ -4267,6 +4273,10 @@ private struct RoundTableHomeView: View {
     @State private var isShowingHighlightReplay = false
     @State private var isShowingSharePoster = false
     @State private var shareMoments: [ForumShareMoment] = []
+    @State private var interjectionDraft = ""
+    @State private var userInterjections: [RoundTableUserInterjection] = []
+    @State private var nextInterjectionSequence = 1
+    @State private var absorbedInterjectionSequence = 0
 
     private let topicClient = DouyinTopicClient.configured()
 
@@ -4384,6 +4394,12 @@ private struct RoundTableHomeView: View {
         VStack(spacing: 12) {
             RoundTableDebateProgress(status: debateStatus, expertCount: experts.count)
             if hasStartedDiscussion {
+                RoundTableBrainInterjectionPanel(
+                    draft: $interjectionDraft,
+                    latestInterjection: userInterjections.last,
+                    isGenerating: isGeneratingRound,
+                    onSubmit: submitRoundtableInterjection
+                )
                 if shouldShowHighlightReplay {
                     RoundTableRestartButton(onRestart: restartRoundtableDiscussion)
                     ForumSharePosterCard(topic: topic) {
@@ -4417,6 +4433,10 @@ private struct RoundTableHomeView: View {
         SpotlightVoicePlayer.shared.stop()
         discussionRunID = UUID()
         shareMoments = []
+        interjectionDraft = ""
+        userInterjections = []
+        nextInterjectionSequence = 1
+        absorbedInterjectionSequence = 0
         debateStatus = .idle
         hasStartedDiscussion = true
         generateRoundTableOpinions()
@@ -4427,6 +4447,10 @@ private struct RoundTableHomeView: View {
         discussionRunID = UUID()
         hasStartedDiscussion = true
         shareMoments = []
+        interjectionDraft = ""
+        userInterjections = []
+        nextInterjectionSequence = 1
+        absorbedInterjectionSequence = 0
         debateStatus = .idle
         generateRoundTableOpinions()
     }
@@ -4437,6 +4461,10 @@ private struct RoundTableHomeView: View {
         hasStartedDiscussion = false
         isGeneratingRound = false
         shareMoments = []
+        interjectionDraft = ""
+        userInterjections = []
+        nextInterjectionSequence = 1
+        absorbedInterjectionSequence = 0
         debateStatus = .idle
     }
 
@@ -4461,6 +4489,40 @@ private struct RoundTableHomeView: View {
                 stance: expertStance(from: expert.side)
             )
         }
+    }
+
+    private func submitRoundtableInterjection() {
+        let text = interjectionDraft.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !text.isEmpty else { return }
+        let wasGenerating = isGeneratingRound
+        let compactText = text.count > 120 ? String(text.prefix(120)) : text
+        let interjection = RoundTableUserInterjection(
+            sequence: nextInterjectionSequence,
+            text: compactText
+        )
+        nextInterjectionSequence += 1
+        userInterjections.append(interjection)
+        interjectionDraft = ""
+        if !wasGenerating {
+            discussionRunID = UUID()
+            hasStartedDiscussion = true
+            generateRoundTableOpinions()
+        }
+        debateStatus = RoundTableDebateStatus(
+            phase: debateStatus.phase,
+            activeExpertName: debateStatus.activeExpertName,
+            isGenerating: debateStatus.isGenerating,
+            detail: wasGenerating ? "用户插话已进入主持队列，下一位专家优先回应" : "用户插话已触发新一轮接管讨论"
+        )
+    }
+
+    private func nextPendingInterjection() -> RoundTableUserInterjection? {
+        guard let interjection = userInterjections.last,
+              interjection.sequence > absorbedInterjectionSequence else {
+            return nil
+        }
+        absorbedInterjectionSequence = interjection.sequence
+        return interjection
     }
 
     private func generateRoundTableOpinions() {
@@ -4493,18 +4555,41 @@ private struct RoundTableHomeView: View {
                     )
                 }
 
-                let results = await generateRoundTablePhase(
-                    phase,
-                    experts: speakingOrder,
-                    stanceLedger: stanceLedger,
-                    history: debateHistory
-                )
-
-                for result in results.sorted(by: { $0.turnIndex < $1.turnIndex }) {
+                for (index, expert) in speakingOrder.enumerated() {
                     let isActiveTurn = await MainActor.run {
                         discussionRunID == runID && hasStartedDiscussion
                     }
                     guard isActiveTurn else { return }
+
+                    let latestInterjection = await MainActor.run {
+                        nextPendingInterjection()
+                    }
+                    if let latestInterjection {
+                        debateHistory.append(historyMessage(for: latestInterjection))
+                    }
+
+                    await MainActor.run {
+                        guard discussionRunID == runID && hasStartedDiscussion else { return }
+                        selectedExpert = expertIndex(for: expert, in: experts)
+                        debateStatus = RoundTableDebateStatus(
+                            phase: phase,
+                            activeExpertName: expert.name,
+                            isGenerating: true,
+                            detail: latestInterjection.map { "用户插话：\($0.text)" } ?? phase.detail
+                        )
+                        onUpdateExpertQuote(expert.id, latestInterjection == nil ? "思考中…我要接住上一位观点" : "收到插话，正在改写反驳", nil)
+                    }
+
+                    let result = await generateRoundTableTurn(
+                        phase,
+                        expert: expert,
+                        turnIndex: index,
+                        experts: speakingOrder,
+                        stanceLedger: stanceLedger,
+                        history: debateHistory,
+                        latestInterjection: latestInterjection
+                    )
+
                     debateHistory.append(historyMessage(for: result))
                     updateStanceLedger(&stanceLedger, with: result)
                     generatedMoments.append(shareMoment(from: result))
@@ -4515,10 +4600,11 @@ private struct RoundTableHomeView: View {
                             phase: phase,
                             activeExpertName: result.expert.name,
                             isGenerating: true,
-                            detail: phase.detail
+                            detail: result.targetName.map { "回应 \($0)，继续推进攻防" } ?? phase.detail
                         )
                         onUpdateExpertQuote(result.expert.id, result.quote, expertSide(from: result.reply.stance))
                     }
+                    try? await Task.sleep(nanoseconds: 360_000_000)
                 }
             }
 
@@ -4571,35 +4657,43 @@ private struct RoundTableHomeView: View {
                         discussionRunID == runID && hasStartedDiscussion
                     }
                     guard isActiveTurn else { return }
-                    generatedMoments.append(shareMoment(from: result))
+                    let latestInterjection = await MainActor.run {
+                        nextPendingInterjection()
+                    }
+                    let activeResult = latestInterjection.map {
+                        scriptedInterjectionResult(base: result, interjection: $0)
+                    } ?? result
+                    generatedMoments.append(shareMoment(from: activeResult))
                     await MainActor.run {
                         guard discussionRunID == runID && hasStartedDiscussion else { return }
-                        selectedExpert = expertIndex(for: result.expert, in: experts)
+                        selectedExpert = expertIndex(for: activeResult.expert, in: experts)
                         debateStatus = RoundTableDebateStatus(
                             phase: phase,
-                            activeExpertName: result.expert.name,
+                            activeExpertName: activeResult.expert.name,
                             isGenerating: true,
-                            detail: result.targetName.map { "正在思考如何反驳 \($0)" } ?? "正在组织观点"
+                            detail: latestInterjection.map { "用户插话：\($0.text)" } ?? (activeResult.targetName.map { "正在思考如何反驳 \($0)" } ?? "正在组织观点")
                         )
-                        let thinkingLine = result.targetName.map { "思考中…我要回应 \($0)" } ?? "思考中…"
-                        onUpdateExpertQuote(result.expert.id, thinkingLine, nil)
+                        let thinkingLine = latestInterjection == nil
+                            ? (activeResult.targetName.map { "思考中…我要回应 \($0)" } ?? "思考中…")
+                            : "收到插话，正在改写反驳"
+                        onUpdateExpertQuote(activeResult.expert.id, thinkingLine, nil)
                     }
                     try? await Task.sleep(nanoseconds: 1_050_000_000)
                     let voiceDuration = await MainActor.run {
                         guard discussionRunID == runID && hasStartedDiscussion else { return 0.0 }
-                        selectedExpert = expertIndex(for: result.expert, in: experts)
+                        selectedExpert = expertIndex(for: activeResult.expert, in: experts)
                         debateStatus = RoundTableDebateStatus(
                             phase: phase,
-                            activeExpertName: result.expert.name,
+                            activeExpertName: activeResult.expert.name,
                             isGenerating: true,
-                            detail: result.targetName.map { "正在回应 \($0)" } ?? phase.detail
+                            detail: activeResult.targetName.map { "正在回应 \($0)" } ?? phase.detail
                         )
-                        onUpdateExpertQuote(result.expert.id, result.quote, expertSide(from: result.reply.stance))
-                        return SpotlightVoicePlayer.shared.play(clipName: result.voiceClipName, rate: 0.82)
+                        onUpdateExpertQuote(activeResult.expert.id, activeResult.quote, expertSide(from: activeResult.reply.stance))
+                        return latestInterjection == nil ? SpotlightVoicePlayer.shared.play(clipName: activeResult.voiceClipName, rate: 0.82) : 0.0
                     }
-                    let readingSeconds = min(max(Double(result.quote.count) * 0.105, 2.65), 7.6)
+                    let readingSeconds = min(max(Double(activeResult.quote.count) * 0.105, 2.65), 7.6)
                     let holdSeconds: Double
-                    if result.voiceClipName == nil {
+                    if activeResult.voiceClipName == nil || latestInterjection != nil {
                         holdSeconds = readingSeconds
                     } else {
                         holdSeconds = min(max(voiceDuration + 0.95, readingSeconds), 8.8)
@@ -4622,65 +4716,84 @@ private struct RoundTableHomeView: View {
         }
     }
 
-    private func generateRoundTablePhase(
+    private func scriptedInterjectionResult(
+        base result: RoundTableTurnResult,
+        interjection: RoundTableUserInterjection
+    ) -> RoundTableTurnResult {
+        let quote = "\(result.expert.name)先接用户插话：\(interjection.text)，但我继续卡住\(result.targetName ?? "这个观点")的核心漏洞。"
+        let reply = ExpertAIReply(
+            text: quote,
+            stance: result.reply.stance,
+            emotion: .skeptical,
+            persuasionDelta: result.reply.persuasionDelta,
+            suggestedPetState: .Speaking,
+            shortQuote: quote,
+            memoryNote: "\(result.expert.name) 优先回应了用户第 \(interjection.sequence) 次插话。"
+        )
+        return RoundTableTurnResult(
+            expert: result.expert,
+            phase: result.phase,
+            turnIndex: result.turnIndex,
+            targetName: "用户",
+            reply: reply,
+            quote: quote,
+            voiceClipName: nil
+        )
+    }
+
+    private func generateRoundTableTurn(
         _ phase: RoundTableDebatePhase,
+        expert: Expert,
+        turnIndex: Int,
         experts: [Expert],
         stanceLedger: [UUID: RoundTableStanceEntry],
-        history: [ExpertConversationMessage]
-    ) async -> [RoundTableTurnResult] {
-        await withTaskGroup(of: RoundTableTurnResult.self) { group in
-            for (index, expert) in experts.enumerated() {
-                let targetName = debateTarget(for: expert, phase: phase, experts: experts, ledger: stanceLedger)
-                let request = ExpertAIRequest(
-                    expertId: personaId(forDisplayName: expert.name),
-                    topic: topic.debate,
-                    userMessage: roundtablePrompt(
-                        for: topic,
-                        expert: expert,
-                        phase: phase,
-                        turnIndex: index,
-                        experts: experts,
-                        history: history,
-                        ledger: stanceLedger,
-                        targetName: targetName
-                    ),
-                    scene: .roundtable,
-                    currentPersuasion: nil,
-                    conversationHistory: history
-                )
+        history: [ExpertConversationMessage],
+        latestInterjection: RoundTableUserInterjection?
+    ) async -> RoundTableTurnResult {
+        let targetName = latestInterjection == nil
+            ? debateTarget(for: expert, phase: phase, experts: experts, ledger: stanceLedger)
+            : "用户"
+        let request = ExpertAIRequest(
+            expertId: personaId(forDisplayName: expert.name),
+            topic: topic.debate,
+            userMessage: roundtablePrompt(
+                for: topic,
+                expert: expert,
+                phase: phase,
+                turnIndex: turnIndex,
+                experts: experts,
+                history: history,
+                ledger: stanceLedger,
+                targetName: targetName,
+                latestInterjection: latestInterjection
+            ),
+            scene: .roundtable,
+            currentPersuasion: nil,
+            conversationHistory: history
+        )
 
-                group.addTask {
-                    let reply: ExpertAIReply
-                    do {
-                        reply = try await aiRuntime.reply(to: request)
-                    } catch {
-                        reply = fallbackRoundtableReply(
-                            for: expert,
-                            phase: phase,
-                            turnIndex: index,
-                            targetName: targetName,
-                            ledger: stanceLedger,
-                            history: history
-                        )
-                    }
-
-                    return RoundTableTurnResult(
-                        expert: expert,
-                        phase: phase,
-                        turnIndex: index,
-                        targetName: targetName,
-                        reply: reply,
-                        quote: roundtableDisplayQuote(from: reply)
-                    )
-                }
-            }
-
-            var results: [RoundTableTurnResult] = []
-            for await result in group {
-                results.append(result)
-            }
-            return results
+        let reply: ExpertAIReply
+        do {
+            reply = try await aiRuntime.reply(to: request)
+        } catch {
+            reply = fallbackRoundtableReply(
+                for: expert,
+                phase: phase,
+                turnIndex: turnIndex,
+                targetName: targetName,
+                ledger: stanceLedger,
+                history: history
+            )
         }
+
+        return RoundTableTurnResult(
+            expert: expert,
+            phase: phase,
+            turnIndex: turnIndex,
+            targetName: targetName,
+            reply: reply,
+            quote: roundtableDisplayQuote(from: reply)
+        )
     }
 
     private func roundtablePrompt(
@@ -4691,13 +4804,15 @@ private struct RoundTableHomeView: View {
         experts: [Expert],
         history: [ExpertConversationMessage],
         ledger: [UUID: RoundTableStanceEntry],
-        targetName: String?
+        targetName: String?,
+        latestInterjection: RoundTableUserInterjection?
     ) -> String {
         let claims = topic.claims.prefix(4).joined(separator: "；")
         let controversy = topic.controversy ?? "请和其他专家保持一点立场差异。"
         let previousSpeaker = lastSpeakerName(in: history) ?? "暂无"
         let rival = targetName ?? rebuttalTarget(for: expert, turnIndex: turnIndex, experts: experts, history: history)
         let ledgerText = stanceLedgerSummary(ledger, experts: experts)
+        let userInterruptText = latestInterjection?.text ?? "无"
         return """
         RoundTableDebateContext:
         - DebateTopic: \(topic.debate)
@@ -4710,12 +4825,15 @@ private struct RoundTableHomeView: View {
         - PreviousSpeaker: \(previousSpeaker)
         - RequiredTarget: \(rival)
         - TurnGoal: \(phase.promptGoal)
+        - UserCanInterruptAnytime: true
+        - LatestUserInterjection: \(userInterruptText)
         - StanceLedger:
         \(ledgerText)
 
         OutputRules:
         - 只返回 ExpertAIReply JSON。
         - text 和 shortQuote 都只能是一句，必须像真实辩论中的接话。
+        - 如果 LatestUserInterjection 不是“无”，你必须先回应用户这句插话，再继续反驳 RequiredTarget；这时 RequiredTarget 可以理解为“用户的临时观点”。
         - \(phase == .stance ? "Round 1 必须明确自己的 stance、核心理由和可被攻击点。" : "Round 2/3 必须包含对 RequiredTarget 或 PreviousSpeaker 的回应，不能只是“我认为”。")
         - 优先制造互相博弈：反驳、拆前提、承认一半再补刀、追问证据、指出代价。
         """
@@ -4839,6 +4957,13 @@ private struct RoundTableHomeView: View {
         return ExpertConversationMessage(
             role: "assistant",
             content: "\(result.phase.label) \(result.expert.name)（\(sideLabel(for: expertSide(from: result.reply.stance)))）\(targetText): \(result.quote)"
+        )
+    }
+
+    private func historyMessage(for interjection: RoundTableUserInterjection) -> ExpertConversationMessage {
+        ExpertConversationMessage(
+            role: "user",
+            content: "用户强插话 #\(interjection.sequence): \(interjection.text)"
         )
     }
 
@@ -9494,6 +9619,82 @@ private struct RoundTableDebateProgress: View {
         }
         .padding(11)
         .background(PixelPanel(fill: Color.white.opacity(0.08), stroke: tint.opacity(0.35)))
+    }
+}
+
+private struct RoundTableBrainInterjectionPanel: View {
+    @Binding var draft: String
+    let latestInterjection: RoundTableUserInterjection?
+    let isGenerating: Bool
+    let onSubmit: () -> Void
+
+    private var canSubmit: Bool {
+        !draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 9) {
+            HStack(spacing: 8) {
+                Image(systemName: "brain.head.profile")
+                    .font(.system(size: 12, weight: .black))
+                    .foregroundStyle(.cyan)
+                Text("最强大脑插话")
+                    .font(.system(size: 12, weight: .black, design: .monospaced))
+                    .foregroundStyle(.white)
+                Spacer()
+                Text(isGenerating ? "随时打断" : "准备接管")
+                    .font(.system(size: 9, weight: .black, design: .monospaced))
+                    .foregroundStyle(.black)
+                    .padding(.horizontal, 7)
+                    .padding(.vertical, 4)
+                    .background(isGenerating ? Color.cyan : Color.yellow)
+                    .clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous))
+            }
+
+            HStack(spacing: 8) {
+                TextField("补充证据、追问漏洞、改变讨论方向", text: $draft, axis: .vertical)
+                    .font(.system(size: 12, weight: .bold, design: .monospaced))
+                    .foregroundStyle(.white)
+                    .lineLimit(1...3)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 9)
+                    .background(Color.black.opacity(0.34))
+                    .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
+                    .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.white.opacity(0.12), lineWidth: 1))
+                    .submitLabel(.send)
+                    .onSubmit {
+                        if canSubmit { onSubmit() }
+                    }
+
+                Button(action: onSubmit) {
+                    Image(systemName: "paperplane.fill")
+                        .font(.system(size: 14, weight: .black))
+                        .foregroundStyle(.black)
+                        .frame(width: 42, height: 42)
+                        .background(canSubmit ? Color.cyan : Color.gray)
+                        .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
+                        .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black.opacity(0.62), lineWidth: 2))
+                }
+                .buttonStyle(.plain)
+                .disabled(!canSubmit)
+            }
+
+            if let latestInterjection {
+                Text("#\(latestInterjection.sequence) \(latestInterjection.text)")
+                    .font(.system(size: 10, weight: .black, design: .monospaced))
+                    .foregroundStyle(.cyan.opacity(0.88))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.72)
+            } else {
+                Text("你可以像主持人一样随时插入观点，下一位专家会先回应你。")
+                    .font(.system(size: 10, weight: .black, design: .monospaced))
+                    .foregroundStyle(.white.opacity(0.58))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.72)
+            }
+        }
+        .padding(11)
+        .background(PixelPanel(fill: Color.white.opacity(0.08), stroke: Color.cyan.opacity(0.34)))
     }
 }
 
