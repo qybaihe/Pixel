@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build unsigned iOS package
@@ -60,3 +63,29 @@ jobs:
           path: unsigned-ipa/PixelRoundtable-unsigned.ipa
           if-no-files-found: error
           retention-days: 14
+
+      - name: Publish latest unsigned IPA release
+        if: github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          RELEASE_TAG="latest-unsigned-ipa"
+          RELEASE_TITLE="像素圆桌 unsigned IPA"
+          RELEASE_NOTES="自动构建的未签名 IPA。下载后请使用自己的证书或侧载工具重新签名安装。"
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release edit "$RELEASE_TAG" \
+              --target "$GITHUB_SHA" \
+              --title "$RELEASE_TITLE" \
+              --notes "$RELEASE_NOTES" \
+              --latest
+          else
+            gh release create "$RELEASE_TAG" \
+              --target "$GITHUB_SHA" \
+              --title "$RELEASE_TITLE" \
+              --notes "$RELEASE_NOTES" \
+              --latest
+          fi
+          gh release upload "$RELEASE_TAG" \
+            "unsigned-ipa/PixelRoundtable-unsigned.ipa" \
+            --clobber

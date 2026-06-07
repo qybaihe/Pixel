@@ -66,18 +66,11 @@ xcodebuild \
 
 如需在真机或模拟器上运行，可以直接用 Xcode 打开 `ClipClashPixel.xcodeproj`，选择 `ClipClashPixel` scheme 后运行。
 
-## GitHub Actions 打包 unsigned IPA
+## 下载 unsigned IPA
 
-仓库内置 workflow：`.github/workflows/build-unsigned-ipa.yml`。
+最新未签名 IPA 会发布到 GitHub Releases：
 
-触发方式：
-
-- push 到 `main`
-- 在 GitHub Actions 页面手动运行 `Build unsigned IPA`
-
-产物：
-
-- Artifact 名称：`PixelRoundtable-unsigned-ipa`
+- Release：[`像素圆桌 unsigned IPA`](https://github.com/qybaihe/Pixel/releases/tag/latest-unsigned-ipa)
 - 文件名：`PixelRoundtable-unsigned.ipa`
 
 这个 IPA 是未签名包，适合后续使用自己的证书或工具重新签名安装。常见方式包括：
@@ -85,6 +78,18 @@ xcodebuild \
 - 使用 Apple Developer 个人/团队证书重新签名
 - 使用 AltStore、Sideloadly 等工具按自己的 Apple ID 签名安装
 - 使用企业或内部分发系统重新签名
+
+## 自动打包
+
+仓库内置 workflow：`.github/workflows/build-unsigned-ipa.yml`。触发方式：
+
+- push 到 `main`
+- 在 GitHub Actions 页面手动运行 `Build unsigned IPA`
+
+构建成功后会同时：
+
+- 上传 Actions Artifact：`PixelRoundtable-unsigned-ipa`
+- 覆盖更新 Releases 中的 `PixelRoundtable-unsigned.ipa`
 
 ## 权限说明
 
