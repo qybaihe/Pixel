@@ -15,13 +15,9 @@
 
 ## 截图
 
-| 首页 | 圆桌论坛 |
-| --- | --- |
-| ![首页](Docs/Screenshots/home.png) | ![圆桌论坛](Docs/Screenshots/roundtable.png) |
-
-| Battle | 专家库 |
-| --- | --- |
-| ![Battle](Docs/Screenshots/battle.png) | ![专家库](Docs/Screenshots/library.png) |
+| 圆桌论坛 | Battle | 专家库 |
+| --- | --- | --- |
+| ![圆桌论坛](Docs/Screenshots/roundtable.png) | ![Battle](Docs/Screenshots/battle.png) | ![专家库](Docs/Screenshots/library.png) |
 
 ## 项目结构
 
