@@ -738,6 +738,23 @@ private final class ExpertPersonaStore: ObservableObject {
 }
 
 private struct ExpertPromptBuilder {
+    static func personaPrompt(persona: ExpertPersona) -> String {
+        """
+        PromptPersona:
+        - id: \(persona.id)
+        - name: \(persona.displayName)
+        - role: \(persona.role)
+        - category: \(persona.category)
+        - thinkingFrame: \(persona.coreBelief)
+        - speechStyle: \(persona.speechStyle)
+        - debateStyle: \(persona.debateStyle)
+        - acceptsWhen: \(persona.agreementTriggers.joined(separator: "、"))
+        - rejectsWhen: \(persona.disagreementTriggers.joined(separator: "、"))
+        - catchphrases: \(persona.catchphrases.joined(separator: " / "))
+        - boundary: \(persona.safetyNotes)
+        """
+    }
+
     static func systemPrompt(persona: ExpertPersona, scene: ExpertAIScene) -> String {
         let sceneLimit: String
         switch scene {
@@ -761,6 +778,7 @@ private struct ExpertPromptBuilder {
 
         return """
         你正在扮演一个游戏内的风格化 AI 专家角色，不要声称你是真实本人在线。
+        这是 prompt-only 单步生成：不要加载外部 skill，不要检索文件，不要等待工具，不要提到 skill、系统提示词、模型、文件路径或真实本人。
         角色：\(persona.displayName)（\(persona.role)）
         核心判断方式：\(persona.coreBelief)
         说话风格：\(persona.speechStyle)
@@ -946,9 +964,40 @@ private struct MockExpertAIClient: ExpertAIClient {
 }
 
 private struct RemoteExpertAIClient: ExpertAIClient {
+    private struct PromptOnlyPersona: Encodable {
+        let id: String
+        let displayName: String
+        let role: String
+        let category: String
+        let coreBelief: String
+        let speechStyle: String
+        let debateStyle: String
+        let agreementTriggers: [String]
+        let disagreementTriggers: [String]
+        let catchphrases: [String]
+        let safetyNotes: String
+
+        init(_ persona: ExpertPersona) {
+            id = persona.id
+            displayName = persona.displayName
+            role = persona.role
+            category = persona.category
+            coreBelief = persona.coreBelief
+            speechStyle = persona.speechStyle
+            debateStyle = persona.debateStyle
+            agreementTriggers = persona.agreementTriggers
+            disagreementTriggers = persona.disagreementTriggers
+            catchphrases = persona.catchphrases
+            safetyNotes = persona.safetyNotes
+        }
+    }
+
     private struct Payload: Encodable {
+        let mode: String
+        let modelHint: String
         let systemPrompt: String
-        let persona: ExpertPersona
+        let personaPrompt: String
+        let persona: PromptOnlyPersona
         let request: ExpertAIRequest
     }
 
@@ -964,8 +1013,11 @@ private struct RemoteExpertAIClient: ExpertAIClient {
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpBody = try JSONEncoder().encode(
             Payload(
+                mode: "single-prompt",
+                modelHint: "mimo-v2.5-pro",
                 systemPrompt: ExpertPromptBuilder.systemPrompt(persona: persona, scene: request.scene),
-                persona: persona,
+                personaPrompt: ExpertPromptBuilder.personaPrompt(persona: persona),
+                persona: PromptOnlyPersona(persona),
                 request: request
             )
         )
@@ -8484,7 +8536,7 @@ private struct ExpertLibraryCard: View {
     }
 
     private var personaSourceLabel: String {
-        persona.skillSourcePath.hasPrefix("fallback://") ? "Seed Persona" : "Skill Persona"
+        persona.skillSourcePath.hasPrefix("fallback://") ? "Seed Persona" : "Prompt Persona"
     }
 
     var body: some View {
