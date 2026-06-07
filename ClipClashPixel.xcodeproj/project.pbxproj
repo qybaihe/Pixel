@@ -1,0 +1,644 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		008EF3FEC6C5978815FAA84F /* demo_county_battle_zhangyiming_r3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BD5F178C2BE725FBBF050612 /* demo_county_battle_zhangyiming_r3.mp3 */; };
+		027206915306CAE505DB4285 /* demo_county_battle_user_r1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 08731BA27B76737556BAB8A1 /* demo_county_battle_user_r1.mp3 */; };
+		05462378CFAF4D11BE1C1F1C /* bgm_rilakkuma.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E7D7CC8B05AB6544A920B66C /* bgm_rilakkuma.mp3 */; };
+		06CF9DE0FAFC0FED1B036015 /* demo_county_battle_user_r2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39C6FD525743988DD07075C4 /* demo_county_battle_user_r2.mp3 */; };
+		0731C0ACFF2DB88C11C20B6A /* persuasion_up.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BF62B296E163566033EC4C9A /* persuasion_up.mp3 */; };
+		0A31AF2B44B1143A591BEF75 /* demo_county_doubao_r2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E123784A87CD9AC612094233 /* demo_county_doubao_r2.mp3 */; };
+		0BBDF6B606B5DB0025E5439D /* demo_county_leijun_r2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 612539B16BCEF92FE5567263 /* demo_county_leijun_r2.mp3 */; };
+		113521676035A90D74F8AF9B /* highlight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B1477220B616CE01D05A207 /* highlight.mp3 */; };
+		12618C3FE2D04A89DF518550 /* battle_clash_intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 66F58077B97B054374240421 /* battle_clash_intro.mp4 */; };
+		12C6A425C0A74AA5F3DF4568 /* demo_county_battle_user_r3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 07D535876FAE6346B0A4390E /* demo_county_battle_user_r3.mp3 */; };
+		16537B49B347501C1423A8ED /* roundtable_import_intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D25F78CE4F918A22204B42AB /* roundtable_import_intro.mp4 */; };
+		1B8E0F37188D1EDE97F1E751 /* bgm_newton.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4586CC5C70A9CF36798CFB6D /* bgm_newton.mp3 */; };
+		21C02907782C2C4AB685F700 /* demo_county_zhangyiming_r3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0656BE8624B416AE114F68B7 /* demo_county_zhangyiming_r3.mp3 */; };
+		27A471E3852AA7F3993054EE /* bgm_feynman.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD260B5171CCC34C3FC4A647 /* bgm_feynman.mp3 */; };
+		28A3E408185D8160BB49A079 /* demo_county_zhangxuefeng_r1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48B95072FAC113F281E7613A /* demo_county_zhangxuefeng_r1.mp3 */; };
+		2B64B126119621F8410F2EE9 /* bgm_bubu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E321EE1AF4624F0EB65AE953 /* bgm_bubu.mp3 */; };
+		2BEBA5857BAB997B475F44C1 /* misa_misamisa_kira_desu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1160181F76B002B616EFADB9 /* misa_misamisa_kira_desu.mp3 */; };
+		2C149675E025ECEBB82D7037 /* bgm_luffy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6135B75EE69B605B09C79A05 /* bgm_luffy.mp3 */; };
+		2DB6D9D86A479CBAD7F6C8C1 /* rilakkuma_uh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B33AC922412638238BF3013D /* rilakkuma_uh.mp3 */; };
+		3607D85B3BDA727971E92E4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387CE1AF77FDB58C9F21624 /* ContentView.swift */; };
+		38C148DE583921AF968A7121 /* nromal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCC777BFB1136573C73E7D5B /* nromal.mp3 */; };
+		39A05EE46223DE187D64A11F /* bgm_einstein.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 59B3458C343CF1AB0411BF1D /* bgm_einstein.mp3 */; };
+		3BE3E88136E1D528D455DB19 /* forum_highlight_demo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E8B28EAB639B4B5558143498 /* forum_highlight_demo.mp4 */; };
+		3C321E6B4189C08033F91525 /* bgm_andy_warhol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F54CA4009D5ABF0742C4C54C /* bgm_andy_warhol.mp3 */; };
+		4AC825E557E9DD654CE867A7 /* bgm_hu_chenfeng.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E314A8EBC250E6394A3B7018 /* bgm_hu_chenfeng.mp3 */; };
+		5BEA5A820537DA4DA2BBD8E3 /* conan_shinjitsu_hitotsu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94FE554F042076BE8F58EFBF /* conan_shinjitsu_hitotsu.mp3 */; };
+		604E10C7FE25A4891B7BCE71 /* demo_county_battle_zhangyiming_r1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C7E533FD9C05A2858E78A8D /* demo_county_battle_zhangyiming_r1.mp3 */; };
+		64AD64E95A7F4E517A1507C4 /* zhangyiming_life_30000_days.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4A69CAA2690EF55970EB585A /* zhangyiming_life_30000_days.mp3 */; };
+		661CA4C8B3C3EB02C040E32F /* bgm_musk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A316F34CC8001E765EB5889B /* bgm_musk.mp3 */; };
+		69D1CE6C36A6C4559D24310D /* doubao_catch_you.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 329B87741722A10BA608487D /* doubao_catch_you.mp3 */; };
+		6FE19EF140A608A81532ECB1 /* demo_county_battle_zhangyiming_r2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE756C0637FB668B0554F744 /* demo_county_battle_zhangyiming_r2.mp3 */; };
+		7397358DB484872EC6E74D9E /* demo_county_musk_r3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB9509548B2110D213B4F206 /* demo_county_musk_r3.mp3 */; };
+		75DA5CEE84FA2DFE3609DFF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFAFCE281DEE66F0DD72F770 /* Assets.xcassets */; };
+		7713E5AEE2F7871E27817A0C /* bgm_l_lawliet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18ECCB03D4D69EC1725D6443 /* bgm_l_lawliet.mp3 */; };
+		78AE3E9AC63FD2DF527641E7 /* bgm_chen_danqing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2D4487FC92BB4E8774A0DBB /* bgm_chen_danqing.mp3 */; };
+		7A353A99BE32BA9BB8FCFC52 /* demo_county_claude_r1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B26F43EF7DBA5D321C031177 /* demo_county_claude_r1.mp3 */; };
+		7D9765129CE24FDDB4FD91A6 /* claude_clear_logic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 92526BD540846B6947DC3F26 /* claude_clear_logic.mp3 */; };
+		8056ECF31D8FF17ACFF89DF6 /* trump_make_america_great_again.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D4DD4476D7A47B77305876B /* trump_make_america_great_again.mp3 */; };
+		84DE4C6F65A8EC1EFE37B12A /* ClipClashPixelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AD3CFFADFB3FAEB56E627 /* ClipClashPixelApp.swift */; };
+		85792FF243549E880DB46EEE /* newton_first_principle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8A8ACF004C694C2D05AC421 /* newton_first_principle.mp3 */; };
+		88706D640CD98E8323DDF2D2 /* einstein_emc2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E0AAFBB58030B0B75F84A87 /* einstein_emc2.mp3 */; };
+		88F76A8C021807BD29E302E5 /* bgm_xiongda.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3586884F51A7D0D68DE7B603 /* bgm_xiongda.mp3 */; };
+		8C9A7595DB8BEC8FE5D816EA /* bgm_carl_sagan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 013304B55414AB8AA1539682 /* bgm_carl_sagan.mp3 */; };
+		9190F4C8BC3A7530B362ACCC /* bgm_carl_jung.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9EE111768361DCE918D9072B /* bgm_carl_jung.mp3 */; };
+		934A6D06F01F85AAC48058AF /* bgm_joseph_stalin_hidden.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23FA4252089BA5BCC4F3D69 /* bgm_joseph_stalin_hidden.mp3 */; };
+		97966AE91C7ABE6F0CD03F91 /* battle_intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9511132C4DB56B646BECA2C8 /* battle_intro.mp4 */; };
+		9AE4ACC1B2DC5A5B4C42B925 /* bgm_doubao.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A22674E76A19565D3036126A /* bgm_doubao.mp3 */; };
+		9CDD692646C387D228E0A2E6 /* bgm_conan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71CD2C7BD1205D9E13C4DADF /* bgm_conan.mp3 */; };
+		A116C9DCA6EEF76055B213AB /* ExpertPersonas.json in Resources */ = {isa = PBXBuildFile; fileRef = FECF03E411E36761A9726D86 /* ExpertPersonas.json */; };
+		A89686FE8D0D7F53B4116D1C /* bgm_usachi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C041A92FA3C109D0D9964CA2 /* bgm_usachi.mp3 */; };
+		ACC9191E64B75CB1DDD824FC /* bgm_misa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4578F8A18DA9E5F0AF5F07F0 /* bgm_misa.mp3 */; };
+		B2FC31C3F2551D2095E04194 /* xiaoba_nantoka_nare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 27828200EA8F28DA8B76A89A /* xiaoba_nantoka_nare.mp3 */; };
+		B6371E0398F0BCDFFE540844 /* mic_on.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A574B7BCF52424BDCA97A42 /* mic_on.mp3 */; };
+		BAE35BD52ED0CD6435566539 /* zhangxuefeng_run_faster.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE17C3F6E2F113EBDBC71143 /* zhangxuefeng_run_faster.mp3 */; };
+		BBCEEBEBF816137C50B58D51 /* bgm_zhangyiming.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 92594BCC5AD37454560CC661 /* bgm_zhangyiming.mp3 */; };
+		BD7F000BED6350902AF62132 /* bgm_sam_altman.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A42801313C3E99C4C10A8A56 /* bgm_sam_altman.mp3 */; };
+		C2C84350AB4A77E45BF63450 /* musk_go_to_mars.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 432CD933E41958AE8B9E5950 /* musk_go_to_mars.mp3 */; };
+		C6FB30F664B9C753FE7EAF03 /* luffy_kaizoku_ou_ore_wa_naru.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35D4051F9CC9DF03FF6EB54F /* luffy_kaizoku_ou_ore_wa_naru.mp3 */; };
+		C8833E00518754B47C1E39C1 /* bgm_nailong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6724459D599AAA0DDFBAC573 /* bgm_nailong.mp3 */; };
+		C9085C2DF7CB594F88EE64D9 /* battle_start.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 679A08DB3EC7C03FADEC8706 /* battle_start.mp3 */; };
+		CBA9700150E2B5E18575C96C /* leijun_are_you_ok.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 294FBF84D8E26C2FB234EE6B /* leijun_are_you_ok.mp3 */; };
+		D1916DC5376E83F694974BE0 /* rebuttal_hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF7158D27A3B42A2D9D7C65A /* rebuttal_hit.mp3 */; };
+		D4173F5047B3FFEF544483B3 /* bgm_zhangxuefeng.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 584FD8CB3B5D99E95423B9F7 /* bgm_zhangxuefeng.mp3 */; };
+		D77DF5FD4C75D425875B953E /* bgm_jensen_huang.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3DF4A97F10C121C42237D4A1 /* bgm_jensen_huang.mp3 */; };
+		DA483B6E88D14A76C5491654 /* battle_lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14D7158CDA594587371DA243 /* battle_lose.mp3 */; };
+		E54CCA46C84895B32D8FF378 /* jensen_more_you_buy_more_you_save.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DC27F79A7FAB83E6453DE8E8 /* jensen_more_you_buy_more_you_save.mp3 */; };
+		E6F22C1176AA081DD46B815F /* nailoong_i_am_nailoong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5704D24CA6B198B2CED1EB2F /* nailoong_i_am_nailoong.mp3 */; };
+		EDA827AF395E2F2398A74129 /* bgm_claude.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1971D9115CB0998D4F69906E /* bgm_claude.mp3 */; };
+		EF76239759C518189423FA8A /* l_i_want_to_tell_you_i_am_l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 721FE6AD4AC9A9E7ACF5DFEF /* l_i_want_to_tell_you_i_am_l.mp3 */; };
+		F09B66D5091883D01F095D7A /* battle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82718CEC4C045FD2FC7B9EAC /* battle.mp3 */; };
+		F3B8838FC7A143113F843E45 /* usachi_yaha.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E43601456C2A00BBBE099D5 /* usachi_yaha.mp3 */; };
+		F416EFCF81A5D163B81EA7E8 /* mic_off.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 07FE57D49840D2C3947F5AFC /* mic_off.mp3 */; };
+		F82D1A8B7F36EEE5657C62BD /* bgm_hachiware.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3DFA9A4BC1869CDB2E12D6B /* bgm_hachiware.mp3 */; };
+		FA60A5F8F789468BE2FF4B0D /* bgm_feng_xiaogang.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 892FB713ED264322B4CEC8E3 /* bgm_feng_xiaogang.mp3 */; };
+		FBAE2D09DEF191FF6C09625C /* sam_too_cheap_to_meter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 59DD851EC0B83B6F5F13D284 /* sam_too_cheap_to_meter.mp3 */; };
+		FC49426BC62F17F979F2517F /* bgm_trump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5F05E8095C4D943F57610E3A /* bgm_trump.mp3 */; };
+		FD203D5962FDFF4AB4B31DFD /* bgm_lu_xun.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 37E0335DE322E72381DD9AFE /* bgm_lu_xun.mp3 */; };
+		FF4FF49321E49ACBF6E87A61 /* battle_win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CA1613E4756F58CE6BEDEBE6 /* battle_win.mp3 */; };
+		FFE95FDA1BEF76988F211A90 /* bgm_leijun.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC09C8C44264788301486C2D /* bgm_leijun.mp3 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		013304B55414AB8AA1539682 /* bgm_carl_sagan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_carl_sagan.mp3; sourceTree = "<group>"; };
+		0656BE8624B416AE114F68B7 /* demo_county_zhangyiming_r3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = demo_county_zhangyiming_r3.mp3; sourceTree = "<group>"; };
+		07D535876FAE6346B0A4390E /* demo_county_battle_user_r3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = demo_county_battle_user_r3.mp3; sourceTree = "<group>"; };
+		07FE57D49840D2C3947F5AFC /* mic_off.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mic_off.mp3; sourceTree = "<group>"; };
+		08731BA27B76737556BAB8A1 /* demo_county_battle_user_r1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = demo_county_battle_user_r1.mp3; sourceTree = "<group>"; };
+		0D4DD4476D7A47B77305876B /* trump_make_america_great_again.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trump_make_america_great_again.mp3; sourceTree = "<group>"; };
+		114AD3CFFADFB3FAEB56E627 /* ClipClashPixelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipClashPixelApp.swift; sourceTree = "<group>"; };
+		1160181F76B002B616EFADB9 /* misa_misamisa_kira_desu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = misa_misamisa_kira_desu.mp3; sourceTree = "<group>"; };
+		14D7158CDA594587371DA243 /* battle_lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = battle_lose.mp3; sourceTree = "<group>"; };
+		18ECCB03D4D69EC1725D6443 /* bgm_l_lawliet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_l_lawliet.mp3; sourceTree = "<group>"; };
+		1971D9115CB0998D4F69906E /* bgm_claude.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_claude.mp3; sourceTree = "<group>"; };
+		1B1477220B616CE01D05A207 /* highlight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = highlight.mp3; sourceTree = "<group>"; };
+		27828200EA8F28DA8B76A89A /* xiaoba_nantoka_nare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = xiaoba_nantoka_nare.mp3; sourceTree = "<group>"; };
+		294FBF84D8E26C2FB234EE6B /* leijun_are_you_ok.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = leijun_are_you_ok.mp3; sourceTree = "<group>"; };
+		2E43601456C2A00BBBE099D5 /* usachi_yaha.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = usachi_yaha.mp3; sourceTree = "<group>"; };
+		329B87741722A10BA608487D /* doubao_catch_you.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = doubao_catch_you.mp3; sourceTree = "<group>"; };
+		3586884F51A7D0D68DE7B603 /* bgm_xiongda.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_xiongda.mp3; sourceTree = "<group>"; };
+		35D4051F9CC9DF03FF6EB54F /* luffy_kaizoku_ou_ore_wa_naru.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = luffy_kaizoku_ou_ore_wa_naru.mp3; sourceTree = "<group>"; };
+		37E0335DE322E72381DD9AFE /* bgm_lu_xun.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_lu_xun.mp3; sourceTree = "<group>"; };
+		39C6FD525743988DD07075C4 /* demo_county_battle_user_r2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = demo_county_battle_user_r2.mp3; sourceTree = "<group>"; };
+		3DF4A97F10C121C42237D4A1 /* bgm_jensen_huang.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_jensen_huang.mp3; sourceTree = "<group>"; };
+		432CD933E41958AE8B9E5950 /* musk_go_to_mars.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = musk_go_to_mars.mp3; sourceTree = "<group>"; };
+		4578F8A18DA9E5F0AF5F07F0 /* bgm_misa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_misa.mp3; sourceTree = "<group>"; };
+		4586CC5C70A9CF36798CFB6D /* bgm_newton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_newton.mp3; sourceTree = "<group>"; };
+		48B95072FAC113F281E7613A /* demo_county_zhangxuefeng_r1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = demo_county_zhangxuefeng_r1.mp3; sourceTree = "<group>"; };
+		4A69CAA2690EF55970EB585A /* zhangyiming_life_30000_days.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zhangyiming_life_30000_days.mp3; sourceTree = "<group>"; };
+		5704D24CA6B198B2CED1EB2F /* nailoong_i_am_nailoong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nailoong_i_am_nailoong.mp3; sourceTree = "<group>"; };
+		584FD8CB3B5D99E95423B9F7 /* bgm_zhangxuefeng.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_zhangxuefeng.mp3; sourceTree = "<group>"; };
+		59B3458C343CF1AB0411BF1D /* bgm_einstein.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_einstein.mp3; sourceTree = "<group>"; };
+		59DD851EC0B83B6F5F13D284 /* sam_too_cheap_to_meter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sam_too_cheap_to_meter.mp3; sourceTree = "<group>"; };
+		5F05E8095C4D943F57610E3A /* bgm_trump.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_trump.mp3; sourceTree = "<group>"; };
+		612539B16BCEF92FE5567263 /* demo_county_leijun_r2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = demo_county_leijun_r2.mp3; sourceTree = "<group>"; };
+		6135B75EE69B605B09C79A05 /* bgm_luffy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_luffy.mp3; sourceTree = "<group>"; };
+		66F58077B97B054374240421 /* battle_clash_intro.mp4 */ = {isa = PBXFileReference; path = battle_clash_intro.mp4; sourceTree = "<group>"; };
+		6724459D599AAA0DDFBAC573 /* bgm_nailong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_nailong.mp3; sourceTree = "<group>"; };
+		679A08DB3EC7C03FADEC8706 /* battle_start.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = battle_start.mp3; sourceTree = "<group>"; };
+		6E0AAFBB58030B0B75F84A87 /* einstein_emc2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = einstein_emc2.mp3; sourceTree = "<group>"; };
+		71CD2C7BD1205D9E13C4DADF /* bgm_conan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_conan.mp3; sourceTree = "<group>"; };
+		721FE6AD4AC9A9E7ACF5DFEF /* l_i_want_to_tell_you_i_am_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = l_i_want_to_tell_you_i_am_l.mp3; sourceTree = "<group>"; };
+		82718CEC4C045FD2FC7B9EAC /* battle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = battle.mp3; sourceTree = "<group>"; };
+		892FB713ED264322B4CEC8E3 /* bgm_feng_xiaogang.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_feng_xiaogang.mp3; sourceTree = "<group>"; };
+		8A574B7BCF52424BDCA97A42 /* mic_on.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mic_on.mp3; sourceTree = "<group>"; };
+		92526BD540846B6947DC3F26 /* claude_clear_logic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = claude_clear_logic.mp3; sourceTree = "<group>"; };
+		92594BCC5AD37454560CC661 /* bgm_zhangyiming.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_zhangyiming.mp3; sourceTree = "<group>"; };
+		94FE554F042076BE8F58EFBF /* conan_shinjitsu_hitotsu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = conan_shinjitsu_hitotsu.mp3; sourceTree = "<group>"; };
+		9511132C4DB56B646BECA2C8 /* battle_intro.mp4 */ = {isa = PBXFileReference; path = battle_intro.mp4; sourceTree = "<group>"; };
+		9C367FCDCE3D218E96307437 /* ClipClashPixel.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ClipClashPixel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C7E533FD9C05A2858E78A8D /* demo_county_battle_zhangyiming_r1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = demo_county_battle_zhangyiming_r1.mp3; sourceTree = "<group>"; };
+		9EE111768361DCE918D9072B /* bgm_carl_jung.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_carl_jung.mp3; sourceTree = "<group>"; };
+		A22674E76A19565D3036126A /* bgm_doubao.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_doubao.mp3; sourceTree = "<group>"; };
+		A316F34CC8001E765EB5889B /* bgm_musk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_musk.mp3; sourceTree = "<group>"; };
+		A3DFA9A4BC1869CDB2E12D6B /* bgm_hachiware.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_hachiware.mp3; sourceTree = "<group>"; };
+		A42801313C3E99C4C10A8A56 /* bgm_sam_altman.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_sam_altman.mp3; sourceTree = "<group>"; };
+		AC09C8C44264788301486C2D /* bgm_leijun.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_leijun.mp3; sourceTree = "<group>"; };
+		B23FA4252089BA5BCC4F3D69 /* bgm_joseph_stalin_hidden.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_joseph_stalin_hidden.mp3; sourceTree = "<group>"; };
+		B26F43EF7DBA5D321C031177 /* demo_county_claude_r1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = demo_county_claude_r1.mp3; sourceTree = "<group>"; };
+		B33AC922412638238BF3013D /* rilakkuma_uh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rilakkuma_uh.mp3; sourceTree = "<group>"; };
+		BD5F178C2BE725FBBF050612 /* demo_county_battle_zhangyiming_r3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = demo_county_battle_zhangyiming_r3.mp3; sourceTree = "<group>"; };
+		BF62B296E163566033EC4C9A /* persuasion_up.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = persuasion_up.mp3; sourceTree = "<group>"; };
+		C041A92FA3C109D0D9964CA2 /* bgm_usachi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_usachi.mp3; sourceTree = "<group>"; };
+		C8A8ACF004C694C2D05AC421 /* newton_first_principle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = newton_first_principle.mp3; sourceTree = "<group>"; };
+		CA1613E4756F58CE6BEDEBE6 /* battle_win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = battle_win.mp3; sourceTree = "<group>"; };
+		CE17C3F6E2F113EBDBC71143 /* zhangxuefeng_run_faster.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zhangxuefeng_run_faster.mp3; sourceTree = "<group>"; };
+		D25F78CE4F918A22204B42AB /* roundtable_import_intro.mp4 */ = {isa = PBXFileReference; path = roundtable_import_intro.mp4; sourceTree = "<group>"; };
+		DC27F79A7FAB83E6453DE8E8 /* jensen_more_you_buy_more_you_save.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jensen_more_you_buy_more_you_save.mp3; sourceTree = "<group>"; };
+		E123784A87CD9AC612094233 /* demo_county_doubao_r2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = demo_county_doubao_r2.mp3; sourceTree = "<group>"; };
+		E314A8EBC250E6394A3B7018 /* bgm_hu_chenfeng.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_hu_chenfeng.mp3; sourceTree = "<group>"; };
+		E321EE1AF4624F0EB65AE953 /* bgm_bubu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_bubu.mp3; sourceTree = "<group>"; };
+		E387CE1AF77FDB58C9F21624 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E7D7CC8B05AB6544A920B66C /* bgm_rilakkuma.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_rilakkuma.mp3; sourceTree = "<group>"; };
+		E8B28EAB639B4B5558143498 /* forum_highlight_demo.mp4 */ = {isa = PBXFileReference; path = forum_highlight_demo.mp4; sourceTree = "<group>"; };
+		EB9509548B2110D213B4F206 /* demo_county_musk_r3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = demo_county_musk_r3.mp3; sourceTree = "<group>"; };
+		EE756C0637FB668B0554F744 /* demo_county_battle_zhangyiming_r2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = demo_county_battle_zhangyiming_r2.mp3; sourceTree = "<group>"; };
+		EF7158D27A3B42A2D9D7C65A /* rebuttal_hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rebuttal_hit.mp3; sourceTree = "<group>"; };
+		EFAFCE281DEE66F0DD72F770 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2D4487FC92BB4E8774A0DBB /* bgm_chen_danqing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_chen_danqing.mp3; sourceTree = "<group>"; };
+		F54CA4009D5ABF0742C4C54C /* bgm_andy_warhol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_andy_warhol.mp3; sourceTree = "<group>"; };
+		FCC777BFB1136573C73E7D5B /* nromal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nromal.mp3; sourceTree = "<group>"; };
+		FD260B5171CCC34C3FC4A647 /* bgm_feynman.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_feynman.mp3; sourceTree = "<group>"; };
+		FECF03E411E36761A9726D86 /* ExpertPersonas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExpertPersonas.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0C20BB652F414DB707911605 /* ClipClashPixel */ = {
+			isa = PBXGroup;
+			children = (
+				EFAFCE281DEE66F0DD72F770 /* Assets.xcassets */,
+				114AD3CFFADFB3FAEB56E627 /* ClipClashPixelApp.swift */,
+				E387CE1AF77FDB58C9F21624 /* ContentView.swift */,
+				30ED50C2269559F59BECEAE5 /* Resources */,
+				31EA01A12834A202E3C55FAC /* VideoClips */,
+				CC95E901529AA3AC839AD128 /* VoiceClips */,
+			);
+			path = ClipClashPixel;
+			sourceTree = "<group>";
+		};
+		30ED50C2269559F59BECEAE5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FECF03E411E36761A9726D86 /* ExpertPersonas.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		31EA01A12834A202E3C55FAC /* VideoClips */ = {
+			isa = PBXGroup;
+			children = (
+				66F58077B97B054374240421 /* battle_clash_intro.mp4 */,
+				9511132C4DB56B646BECA2C8 /* battle_intro.mp4 */,
+				E8B28EAB639B4B5558143498 /* forum_highlight_demo.mp4 */,
+				D25F78CE4F918A22204B42AB /* roundtable_import_intro.mp4 */,
+			);
+			path = VideoClips;
+			sourceTree = "<group>";
+		};
+		5FF0FE6DA12E04DA3C864B5D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C367FCDCE3D218E96307437 /* ClipClashPixel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		862C921172712D416F6F73A8 = {
+			isa = PBXGroup;
+			children = (
+				0C20BB652F414DB707911605 /* ClipClashPixel */,
+				5FF0FE6DA12E04DA3C864B5D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CC95E901529AA3AC839AD128 /* VoiceClips */ = {
+			isa = PBXGroup;
+			children = (
+				14D7158CDA594587371DA243 /* battle_lose.mp3 */,
+				679A08DB3EC7C03FADEC8706 /* battle_start.mp3 */,
+				CA1613E4756F58CE6BEDEBE6 /* battle_win.mp3 */,
+				82718CEC4C045FD2FC7B9EAC /* battle.mp3 */,
+				F54CA4009D5ABF0742C4C54C /* bgm_andy_warhol.mp3 */,
+				E321EE1AF4624F0EB65AE953 /* bgm_bubu.mp3 */,
+				9EE111768361DCE918D9072B /* bgm_carl_jung.mp3 */,
+				013304B55414AB8AA1539682 /* bgm_carl_sagan.mp3 */,
+				F2D4487FC92BB4E8774A0DBB /* bgm_chen_danqing.mp3 */,
+				1971D9115CB0998D4F69906E /* bgm_claude.mp3 */,
+				71CD2C7BD1205D9E13C4DADF /* bgm_conan.mp3 */,
+				A22674E76A19565D3036126A /* bgm_doubao.mp3 */,
+				59B3458C343CF1AB0411BF1D /* bgm_einstein.mp3 */,
+				892FB713ED264322B4CEC8E3 /* bgm_feng_xiaogang.mp3 */,
+				FD260B5171CCC34C3FC4A647 /* bgm_feynman.mp3 */,
+				A3DFA9A4BC1869CDB2E12D6B /* bgm_hachiware.mp3 */,
+				E314A8EBC250E6394A3B7018 /* bgm_hu_chenfeng.mp3 */,
+				3DF4A97F10C121C42237D4A1 /* bgm_jensen_huang.mp3 */,
+				B23FA4252089BA5BCC4F3D69 /* bgm_joseph_stalin_hidden.mp3 */,
+				18ECCB03D4D69EC1725D6443 /* bgm_l_lawliet.mp3 */,
+				AC09C8C44264788301486C2D /* bgm_leijun.mp3 */,
+				37E0335DE322E72381DD9AFE /* bgm_lu_xun.mp3 */,
+				6135B75EE69B605B09C79A05 /* bgm_luffy.mp3 */,
+				4578F8A18DA9E5F0AF5F07F0 /* bgm_misa.mp3 */,
+				A316F34CC8001E765EB5889B /* bgm_musk.mp3 */,
+				6724459D599AAA0DDFBAC573 /* bgm_nailong.mp3 */,
+				4586CC5C70A9CF36798CFB6D /* bgm_newton.mp3 */,
+				E7D7CC8B05AB6544A920B66C /* bgm_rilakkuma.mp3 */,
+				A42801313C3E99C4C10A8A56 /* bgm_sam_altman.mp3 */,
+				5F05E8095C4D943F57610E3A /* bgm_trump.mp3 */,
+				C041A92FA3C109D0D9964CA2 /* bgm_usachi.mp3 */,
+				3586884F51A7D0D68DE7B603 /* bgm_xiongda.mp3 */,
+				584FD8CB3B5D99E95423B9F7 /* bgm_zhangxuefeng.mp3 */,
+				92594BCC5AD37454560CC661 /* bgm_zhangyiming.mp3 */,
+				92526BD540846B6947DC3F26 /* claude_clear_logic.mp3 */,
+				94FE554F042076BE8F58EFBF /* conan_shinjitsu_hitotsu.mp3 */,
+				08731BA27B76737556BAB8A1 /* demo_county_battle_user_r1.mp3 */,
+				39C6FD525743988DD07075C4 /* demo_county_battle_user_r2.mp3 */,
+				07D535876FAE6346B0A4390E /* demo_county_battle_user_r3.mp3 */,
+				9C7E533FD9C05A2858E78A8D /* demo_county_battle_zhangyiming_r1.mp3 */,
+				EE756C0637FB668B0554F744 /* demo_county_battle_zhangyiming_r2.mp3 */,
+				BD5F178C2BE725FBBF050612 /* demo_county_battle_zhangyiming_r3.mp3 */,
+				B26F43EF7DBA5D321C031177 /* demo_county_claude_r1.mp3 */,
+				E123784A87CD9AC612094233 /* demo_county_doubao_r2.mp3 */,
+				612539B16BCEF92FE5567263 /* demo_county_leijun_r2.mp3 */,
+				EB9509548B2110D213B4F206 /* demo_county_musk_r3.mp3 */,
+				48B95072FAC113F281E7613A /* demo_county_zhangxuefeng_r1.mp3 */,
+				0656BE8624B416AE114F68B7 /* demo_county_zhangyiming_r3.mp3 */,
+				329B87741722A10BA608487D /* doubao_catch_you.mp3 */,
+				6E0AAFBB58030B0B75F84A87 /* einstein_emc2.mp3 */,
+				1B1477220B616CE01D05A207 /* highlight.mp3 */,
+				DC27F79A7FAB83E6453DE8E8 /* jensen_more_you_buy_more_you_save.mp3 */,
+				721FE6AD4AC9A9E7ACF5DFEF /* l_i_want_to_tell_you_i_am_l.mp3 */,
+				294FBF84D8E26C2FB234EE6B /* leijun_are_you_ok.mp3 */,
+				35D4051F9CC9DF03FF6EB54F /* luffy_kaizoku_ou_ore_wa_naru.mp3 */,
+				07FE57D49840D2C3947F5AFC /* mic_off.mp3 */,
+				8A574B7BCF52424BDCA97A42 /* mic_on.mp3 */,
+				1160181F76B002B616EFADB9 /* misa_misamisa_kira_desu.mp3 */,
+				432CD933E41958AE8B9E5950 /* musk_go_to_mars.mp3 */,
+				5704D24CA6B198B2CED1EB2F /* nailoong_i_am_nailoong.mp3 */,
+				C8A8ACF004C694C2D05AC421 /* newton_first_principle.mp3 */,
+				FCC777BFB1136573C73E7D5B /* nromal.mp3 */,
+				BF62B296E163566033EC4C9A /* persuasion_up.mp3 */,
+				EF7158D27A3B42A2D9D7C65A /* rebuttal_hit.mp3 */,
+				B33AC922412638238BF3013D /* rilakkuma_uh.mp3 */,
+				59DD851EC0B83B6F5F13D284 /* sam_too_cheap_to_meter.mp3 */,
+				0D4DD4476D7A47B77305876B /* trump_make_america_great_again.mp3 */,
+				2E43601456C2A00BBBE099D5 /* usachi_yaha.mp3 */,
+				27828200EA8F28DA8B76A89A /* xiaoba_nantoka_nare.mp3 */,
+				CE17C3F6E2F113EBDBC71143 /* zhangxuefeng_run_faster.mp3 */,
+				4A69CAA2690EF55970EB585A /* zhangyiming_life_30000_days.mp3 */,
+			);
+			path = VoiceClips;
+			sourceTree = "<group>";
+		};
+		"TEMP_8DAA36C6-E88B-4F85-B3B4-045B8314CCB3" /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF410CB107142823B7CB7030 /* ClipClashPixel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0C6E2E44308E927B7ADBB26 /* Build configuration list for PBXNativeTarget "ClipClashPixel" */;
+			buildPhases = (
+				0658759D453B33047F63CACD /* Sources */,
+				1C00BCFDA0DB1070E94D6343 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClipClashPixel;
+			packageProductDependencies = (
+			);
+			productName = ClipClashPixel;
+			productReference = 9C367FCDCE3D218E96307437 /* ClipClashPixel.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C05DC9BE952B99DF6AEDD6E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 6FD832211AC4E597D92F3AC8 /* Build configuration list for PBXProject "ClipClashPixel" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 862C921172712D416F6F73A8;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5FF0FE6DA12E04DA3C864B5D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF410CB107142823B7CB7030 /* ClipClashPixel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C00BCFDA0DB1070E94D6343 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75DA5CEE84FA2DFE3609DFF5 /* Assets.xcassets in Resources */,
+				A116C9DCA6EEF76055B213AB /* ExpertPersonas.json in Resources */,
+				F09B66D5091883D01F095D7A /* battle.mp3 in Resources */,
+				12618C3FE2D04A89DF518550 /* battle_clash_intro.mp4 in Resources */,
+				97966AE91C7ABE6F0CD03F91 /* battle_intro.mp4 in Resources */,
+				DA483B6E88D14A76C5491654 /* battle_lose.mp3 in Resources */,
+				C9085C2DF7CB594F88EE64D9 /* battle_start.mp3 in Resources */,
+				FF4FF49321E49ACBF6E87A61 /* battle_win.mp3 in Resources */,
+				3C321E6B4189C08033F91525 /* bgm_andy_warhol.mp3 in Resources */,
+				2B64B126119621F8410F2EE9 /* bgm_bubu.mp3 in Resources */,
+				9190F4C8BC3A7530B362ACCC /* bgm_carl_jung.mp3 in Resources */,
+				8C9A7595DB8BEC8FE5D816EA /* bgm_carl_sagan.mp3 in Resources */,
+				78AE3E9AC63FD2DF527641E7 /* bgm_chen_danqing.mp3 in Resources */,
+				EDA827AF395E2F2398A74129 /* bgm_claude.mp3 in Resources */,
+				9CDD692646C387D228E0A2E6 /* bgm_conan.mp3 in Resources */,
+				9AE4ACC1B2DC5A5B4C42B925 /* bgm_doubao.mp3 in Resources */,
+				39A05EE46223DE187D64A11F /* bgm_einstein.mp3 in Resources */,
+				FA60A5F8F789468BE2FF4B0D /* bgm_feng_xiaogang.mp3 in Resources */,
+				27A471E3852AA7F3993054EE /* bgm_feynman.mp3 in Resources */,
+				F82D1A8B7F36EEE5657C62BD /* bgm_hachiware.mp3 in Resources */,
+				4AC825E557E9DD654CE867A7 /* bgm_hu_chenfeng.mp3 in Resources */,
+				D77DF5FD4C75D425875B953E /* bgm_jensen_huang.mp3 in Resources */,
+				934A6D06F01F85AAC48058AF /* bgm_joseph_stalin_hidden.mp3 in Resources */,
+				7713E5AEE2F7871E27817A0C /* bgm_l_lawliet.mp3 in Resources */,
+				FFE95FDA1BEF76988F211A90 /* bgm_leijun.mp3 in Resources */,
+				FD203D5962FDFF4AB4B31DFD /* bgm_lu_xun.mp3 in Resources */,
+				2C149675E025ECEBB82D7037 /* bgm_luffy.mp3 in Resources */,
+				ACC9191E64B75CB1DDD824FC /* bgm_misa.mp3 in Resources */,
+				661CA4C8B3C3EB02C040E32F /* bgm_musk.mp3 in Resources */,
+				C8833E00518754B47C1E39C1 /* bgm_nailong.mp3 in Resources */,
+				1B8E0F37188D1EDE97F1E751 /* bgm_newton.mp3 in Resources */,
+				05462378CFAF4D11BE1C1F1C /* bgm_rilakkuma.mp3 in Resources */,
+				BD7F000BED6350902AF62132 /* bgm_sam_altman.mp3 in Resources */,
+				FC49426BC62F17F979F2517F /* bgm_trump.mp3 in Resources */,
+				A89686FE8D0D7F53B4116D1C /* bgm_usachi.mp3 in Resources */,
+				88F76A8C021807BD29E302E5 /* bgm_xiongda.mp3 in Resources */,
+				D4173F5047B3FFEF544483B3 /* bgm_zhangxuefeng.mp3 in Resources */,
+				BBCEEBEBF816137C50B58D51 /* bgm_zhangyiming.mp3 in Resources */,
+				7D9765129CE24FDDB4FD91A6 /* claude_clear_logic.mp3 in Resources */,
+				5BEA5A820537DA4DA2BBD8E3 /* conan_shinjitsu_hitotsu.mp3 in Resources */,
+				027206915306CAE505DB4285 /* demo_county_battle_user_r1.mp3 in Resources */,
+				06CF9DE0FAFC0FED1B036015 /* demo_county_battle_user_r2.mp3 in Resources */,
+				12C6A425C0A74AA5F3DF4568 /* demo_county_battle_user_r3.mp3 in Resources */,
+				604E10C7FE25A4891B7BCE71 /* demo_county_battle_zhangyiming_r1.mp3 in Resources */,
+				6FE19EF140A608A81532ECB1 /* demo_county_battle_zhangyiming_r2.mp3 in Resources */,
+				008EF3FEC6C5978815FAA84F /* demo_county_battle_zhangyiming_r3.mp3 in Resources */,
+				7A353A99BE32BA9BB8FCFC52 /* demo_county_claude_r1.mp3 in Resources */,
+				0A31AF2B44B1143A591BEF75 /* demo_county_doubao_r2.mp3 in Resources */,
+				0BBDF6B606B5DB0025E5439D /* demo_county_leijun_r2.mp3 in Resources */,
+				7397358DB484872EC6E74D9E /* demo_county_musk_r3.mp3 in Resources */,
+				28A3E408185D8160BB49A079 /* demo_county_zhangxuefeng_r1.mp3 in Resources */,
+				21C02907782C2C4AB685F700 /* demo_county_zhangyiming_r3.mp3 in Resources */,
+				69D1CE6C36A6C4559D24310D /* doubao_catch_you.mp3 in Resources */,
+				88706D640CD98E8323DDF2D2 /* einstein_emc2.mp3 in Resources */,
+				3BE3E88136E1D528D455DB19 /* forum_highlight_demo.mp4 in Resources */,
+				113521676035A90D74F8AF9B /* highlight.mp3 in Resources */,
+				E54CCA46C84895B32D8FF378 /* jensen_more_you_buy_more_you_save.mp3 in Resources */,
+				EF76239759C518189423FA8A /* l_i_want_to_tell_you_i_am_l.mp3 in Resources */,
+				CBA9700150E2B5E18575C96C /* leijun_are_you_ok.mp3 in Resources */,
+				C6FB30F664B9C753FE7EAF03 /* luffy_kaizoku_ou_ore_wa_naru.mp3 in Resources */,
+				F416EFCF81A5D163B81EA7E8 /* mic_off.mp3 in Resources */,
+				B6371E0398F0BCDFFE540844 /* mic_on.mp3 in Resources */,
+				2BEBA5857BAB997B475F44C1 /* misa_misamisa_kira_desu.mp3 in Resources */,
+				C2C84350AB4A77E45BF63450 /* musk_go_to_mars.mp3 in Resources */,
+				E6F22C1176AA081DD46B815F /* nailoong_i_am_nailoong.mp3 in Resources */,
+				85792FF243549E880DB46EEE /* newton_first_principle.mp3 in Resources */,
+				38C148DE583921AF968A7121 /* nromal.mp3 in Resources */,
+				0731C0ACFF2DB88C11C20B6A /* persuasion_up.mp3 in Resources */,
+				D1916DC5376E83F694974BE0 /* rebuttal_hit.mp3 in Resources */,
+				2DB6D9D86A479CBAD7F6C8C1 /* rilakkuma_uh.mp3 in Resources */,
+				16537B49B347501C1423A8ED /* roundtable_import_intro.mp4 in Resources */,
+				FBAE2D09DEF191FF6C09625C /* sam_too_cheap_to_meter.mp3 in Resources */,
+				8056ECF31D8FF17ACFF89DF6 /* trump_make_america_great_again.mp3 in Resources */,
+				F3B8838FC7A143113F843E45 /* usachi_yaha.mp3 in Resources */,
+				B2FC31C3F2551D2095E04194 /* xiaoba_nantoka_nare.mp3 in Resources */,
+				BAE35BD52ED0CD6435566539 /* zhangxuefeng_run_faster.mp3 in Resources */,
+				64AD64E95A7F4E517A1507C4 /* zhangyiming_life_30000_days.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0658759D453B33047F63CACD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84DE4C6F65A8EC1EFE37B12A /* ClipClashPixelApp.swift in Sources */,
+				3607D85B3BDA727971E92E4E /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		145923F80C9B38F4C6AC1CE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3B6818E555526F5EE2FB8BFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+					GENERATE_INFOPLIST_FILE = NO;
+					INFOPLIST_FILE = ClipClashPixel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.clipclash.pixel;
+				PRODUCT_NAME = ClipClashPixel;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F22DA67A690E88A1AD0E0800 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+					GENERATE_INFOPLIST_FILE = NO;
+					INFOPLIST_FILE = ClipClashPixel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.clipclash.pixel;
+				PRODUCT_NAME = ClipClashPixel;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F41B12128AF7E48428D4D875 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6FD832211AC4E597D92F3AC8 /* Build configuration list for PBXProject "ClipClashPixel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				145923F80C9B38F4C6AC1CE5 /* Debug */,
+				F41B12128AF7E48428D4D875 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F0C6E2E44308E927B7ADBB26 /* Build configuration list for PBXNativeTarget "ClipClashPixel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B6818E555526F5EE2FB8BFF /* Debug */,
+				F22DA67A690E88A1AD0E0800 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C05DC9BE952B99DF6AEDD6E8 /* Project object */;
+}
